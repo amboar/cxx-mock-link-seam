@@ -1,0 +1,10 @@
+AM_CPPFLAGS = -I$(top_srcdir) $(GTEST_CPPFLAGS)
+AM_CXXFLAGS = $(PTHREAD_CFLAGS) $(GTEST_CFLAGS)
+AM_LDFLAGS = $(GTEST_LIBS) $(PTHREAD_LIBS) -lgtest -lgtest_main -lgmock 
+
+test_tests_SOURCES = \
+	%reldir%/tests.cpp \
+	%reldir%/bazproxy.cpp \
+	foo.cpp
+
+check_PROGRAMS += %reldir%/tests
