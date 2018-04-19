@@ -12,6 +12,7 @@ class Baz
 
 		bool is_quux();
 		int get();
+		virtual inline int square() { return val * val; };
 
 	private:
 		int val;

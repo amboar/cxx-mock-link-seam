@@ -9,7 +9,7 @@ Foo::Foo(Baz& baz) : baz(baz)
 int Foo::bar()
 {
 	if (baz.is_quux())
-		return baz.get() * baz.get();
+		return baz.square();
 
-	return 0;
+	return baz.get();
 }
