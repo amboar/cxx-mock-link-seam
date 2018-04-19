@@ -4,10 +4,10 @@
 
 bool Baz::is_quux()
 {
-	return m.is_quux();
+	return static_cast<BazProxy*>(this)->m.is_quux();
 }
 
 int Baz::get()
 {
-	return m.get();
+	return static_cast<BazProxy*>(this)->m.get();
 }

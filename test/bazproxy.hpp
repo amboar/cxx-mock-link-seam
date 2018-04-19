@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright (C) 2018 IBM Corp.
-#ifndef _BAZ_HPP
-#define _BAZ_HPP
-
 #include <gmock/gmock.h>
+
+#include "baz.hpp"
 
 class BazMock
 {
@@ -12,16 +11,9 @@ class BazMock
 		MOCK_METHOD0(get, int());
 };
 
-class Baz
+class BazProxy: public Baz
 {
 	public:
-		Baz(BazMock& m) : m(m) { };
-
-		bool is_quux();
-		int get();
-
-	private:
+		BazProxy(BazMock& m) : Baz(0), m(m) { };
 		BazMock& m;
 };
-
-#endif

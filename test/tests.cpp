@@ -13,7 +13,7 @@ TEST(TestFoo, quux_true)
 
 	constexpr auto val = 3;
 	BazMock bazmock;
-	Baz baz(bazmock);
+	BazProxy baz(bazmock);
 	Foo foo(baz);
 
 	EXPECT_CALL(bazmock, is_quux()).Times(1).WillOnce(Return(true));
@@ -27,7 +27,7 @@ TEST(TestFoo, quux_false)
 	using ::testing::Return;
 
 	BazMock bazmock;
-	Baz baz(bazmock);
+	BazProxy baz(bazmock);
 	Foo foo(baz);
 
 	EXPECT_CALL(bazmock, is_quux()).Times(1).WillOnce(Return(false));
